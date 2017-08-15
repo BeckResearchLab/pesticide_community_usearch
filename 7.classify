@@ -1,0 +1,14 @@
+#!/bin/bash
+
+source globals.sh
+
+FA=data/combined.zotus.fasta
+XLS=data/combined.zotus.classified.xls
+BOUT=data/combined.zotus.RDP.blast
+
+if [ ! -e $XLS ] 
+then
+	echo running RDP classifier on zOTUs
+	echo java -Xmx1g -jar $CLFRJAR classify -g 16srrna $FA -o $XLS
+	java -Xmx1g -jar $CLFRJAR classify -g 16srrna $FA -o $XLS
+fi

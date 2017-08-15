@@ -7,7 +7,8 @@ FQRELABEL=$D5P/py/fastq_strip_barcode_relabel2.py
 NUMBER=$D5P/py/fasta_number.py
 UC2OTUTAB=$D5P/py/uc2otutab.py
 
-RDPT=/work/software/RDPTools
+RDPT=/work/software/RDPTools/classifier/dist
+
 CLFRJAR=$RDPT/classifier.jar
 
 # e.g.

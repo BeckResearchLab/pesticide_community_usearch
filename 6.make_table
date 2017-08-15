@@ -2,6 +2,6 @@
 
 source globals.sh
 
-echo making table of OTUs into otu_table.xls
-echo $UC2OTUTAB data/combined.read_to_otu.map.uc 
-python2 $UC2OTUTAB data/combined.read_to_otu.map.uc > data/combined.final.otus.xls
+echo making table of OTUs into zotu_table.xls
+echo $UC2OTUTAB data/combined.read_to_zotu.map.uc 
+python2 $UC2OTUTAB data/combined.read_to_zotu.map.uc > data/combined.zotus.xls

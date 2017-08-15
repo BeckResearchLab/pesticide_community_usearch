@@ -1,0 +1,11 @@
+usearch v10.0.240_i86linux32, 4.0Gb RAM (66.0Gb total), 18 cores
+(C) Copyright 2013-17 Robert C. Edgar, all rights reserved.
+http://drive5.com/usearch
+
+License: dacb@uw.edu
+
+00:00 39Mb   CPU has 18 cores, defaulting to 10 threads
+00:00 118Mb     0.1% Filtering00:01 124Mb     1.4% Filtering, 83.3% passed00:02 124Mb     4.4% Filtering, 83.4% passed00:03 124Mb     7.6% Filtering, 83.3% passed00:04 124Mb    10.8% Filtering, 83.2% passed00:05 124Mb    13.7% Filtering, 83.2% passed00:06 124Mb    16.4% Filtering, 83.1% passed00:07 124Mb    19.5% Filtering, 83.1% passed00:08 124Mb    22.4% Filtering, 83.1% passed00:09 124Mb    25.4% Filtering, 83.1% passed00:10 124Mb    28.5% Filtering, 83.1% passed00:11 124Mb    31.6% Filtering, 83.1% passed00:12 124Mb    34.6% Filtering, 83.1% passed00:13 124Mb    37.7% Filtering, 83.1% passed00:14 124Mb    40.6% Filtering, 83.1% passed00:15 124Mb    43.5% Filtering, 83.1% passed00:16 124Mb    46.4% Filtering, 83.1% passed00:17 124Mb    49.1% Filtering, 83.2% passed00:18 124Mb    52.0% Filtering, 83.1% passed00:19 124Mb    54.9% Filtering, 83.1% passed00:20 124Mb    57.8% Filtering, 83.1% passed00:21 124Mb    60.4% Filtering, 83.1% passed00:22 124Mb    62.6% Filtering, 83.1% passed00:23 124Mb    65.2% Filtering, 83.1% passed00:24 124Mb    67.9% Filtering, 83.1% passed00:25 124Mb    70.8% Filtering, 83.1% passed00:26 124Mb    73.4% Filtering, 83.1% passed00:27 124Mb    76.1% Filtering, 83.1% passed00:28 124Mb    78.8% Filtering, 83.1% passed00:29 124Mb    81.8% Filtering, 83.1% passed00:30 124Mb    84.6% Filtering, 83.2% passed00:31 124Mb    87.4% Filtering, 83.2% passed00:32 124Mb    90.2% Filtering, 83.2% passed00:33 124Mb    92.9% Filtering, 83.2% passed00:34 124Mb    95.7% Filtering, 83.2% passed00:35 124Mb    98.2% Filtering, 83.2% passed00:35 91Mb    100.0% Filtering, 83.2% passed
+   2057524  Reads (2.1M)                    
+    346320  Discarded reads with expected errs > 1.00
+   1711204  Filtered reads (1.7M, 83.2%)

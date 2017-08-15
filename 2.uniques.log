@@ -1,0 +1,12 @@
+usearch v10.0.240_i86linux32, 4.0Gb RAM (66.0Gb total), 18 cores
+(C) Copyright 2013-17 Robert C. Edgar, all rights reserved.
+http://drive5.com/usearch
+
+License: dacb@uw.edu
+
+00:00 39Mb      0.1% Reading data/combined.filtered.fasta00:01 90Mb      5.8% Reading data/combined.filtered.fasta00:02 160Mb    14.1% Reading data/combined.filtered.fasta00:03 253Mb    24.8% Reading data/combined.filtered.fasta00:04 321Mb    32.6% Reading data/combined.filtered.fasta00:05 421Mb    44.4% Reading data/combined.filtered.fasta00:06 495Mb    52.9% Reading data/combined.filtered.fasta00:07 568Mb    61.2% Reading data/combined.filtered.fasta00:08 668Mb    73.1% Reading data/combined.filtered.fasta00:09 699Mb    76.5% Reading data/combined.filtered.fasta00:10 764Mb    84.3% Reading data/combined.filtered.fasta00:11 831Mb    91.9% Reading data/combined.filtered.fasta00:11 899Mb   100.0% Reading data/combined.filtered.fasta
+00:11 865Mb  CPU has 18 cores, defaulting to 10 threads  
+00:14 1.3Gb     0.0% DF00:15 1.3Gb    22.0% DF00:15 1.3Gb   100.0% DF
+00:16 1.3Gb  1711204 seqs, 1153310 uniques, 1063266 singletons (92.2%)
+00:16 1.3Gb  Min size 1, median 1, max 2025, avg 1.48
+00:16 1.0Gb     0.0% Writing data/combined.filtered.uniques.fasta00:17 1.0Gb     3.0% Writing data/combined.filtered.uniques.fasta00:18 1.0Gb     8.8% Writing data/combined.filtered.uniques.fasta00:19 1.0Gb    14.8% Writing data/combined.filtered.uniques.fasta00:20 1.0Gb    20.8% Writing data/combined.filtered.uniques.fasta00:21 1.0Gb    26.6% Writing data/combined.filtered.uniques.fasta00:22 1.0Gb    32.6% Writing data/combined.filtered.uniques.fasta00:23 1.0Gb    38.8% Writing data/combined.filtered.uniques.fasta00:24 1.0Gb    45.3% Writing data/combined.filtered.uniques.fasta00:25 1.0Gb    51.4% Writing data/combined.filtered.uniques.fasta00:26 1.0Gb    57.5% Writing data/combined.filtered.uniques.fasta00:27 1.0Gb    63.6% Writing data/combined.filtered.uniques.fasta00:28 1.0Gb    69.1% Writing data/combined.filtered.uniques.fasta00:29 1.0Gb    75.4% Writing data/combined.filtered.uniques.fasta00:30 1.0Gb    81.8% Writing data/combined.filtered.uniques.fasta00:31 1.0Gb    87.9% Writing data/combined.filtered.uniques.fasta00:32 1.0Gb    94.2% Writing data/combined.filtered.uniques.fasta00:32 1.0Gb   100.0% Writing data/combined.filtered.uniques.fasta
