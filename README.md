@@ -16,6 +16,7 @@ You will need the following tools to use this pipeline:
  * Wang, Q, G. M. Garrity, J. M. Tiedje, and J. R. Cole. 2007. 
 Naive Bayesian Classifier for Rapid Assignment of rRNA Sequences into the New Bacterial Taxonomy. Appl Environ Microbiol. 73(16):5261-7.
 * A working MySQL server installation (contact me for a SQLite3 version)
+* R needs the following packages: `docopt`, `DESeq2`
 
 Getting started:
 ----------
