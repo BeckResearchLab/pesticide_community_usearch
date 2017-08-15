@@ -1,0 +1,8 @@
+#!/bin/bash
+
+source globals.sh
+
+$USEARCH -cluster_otus data/combined.filtered.uniques.fasta -otus data/combined.otus.fasta 
+#>& $0.log
+$USEARCH -otutab data/combined.filtered.uniques.fasta -otus data/combined.otus.fasta -strand plus -otutabout data/otutab.txt --threads 1 #>>& $0.log
+

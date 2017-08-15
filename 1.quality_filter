@@ -1,0 +1,6 @@
+#!/bin/bash
+
+source globals.sh
+
+$USEARCH -fastq_filter data/combined.fastq -fastq_maxee $MAXEE -fastaout data/combined.filtered.fasta>& $0.log
+

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source globals.sh
+
+$USEARCH -fastx_uniques data/combined.filtered.fasta -sizeout -fastaout data/combined.filtered.uniques.fasta >& $0.log

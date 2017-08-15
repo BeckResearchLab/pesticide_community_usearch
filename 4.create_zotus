@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source globals.sh
+
+$USEARCH -unoise3 data/combined.filtered.uniques.fasta -zotus data/combined.zotus.fasta #>& $0.log
+$USEARCH -otutab data/combined.filtered.uniques.fasta -otus data/combined.zotus.fasta -strand plus -otutabout data/zotutab.txt #>>& $0.log
+

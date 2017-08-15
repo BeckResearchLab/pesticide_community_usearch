@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source globals.sh
+
+echo making table of OTUs into otu_table.xls
+echo $UC2OTUTAB data/combined.read_to_otu.map.uc 
+python2 $UC2OTUTAB data/combined.read_to_otu.map.uc > data/combined.final.otus.xls
