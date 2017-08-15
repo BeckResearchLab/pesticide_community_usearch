@@ -30,4 +30,7 @@ SAMPLE_INFO_SUBSET=sample_info.subset.xls
 
 # e.g.
 OUTPUT_NAME=pesticide_community
+# confidence cutoff for taxonomy assignment
 PERSISTENT_BEST_PCNT=.50
+# abundance cutoff in %
+PERSISTENT_PCNT=0.01
