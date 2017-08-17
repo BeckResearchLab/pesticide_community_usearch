@@ -39,6 +39,7 @@ head(log_otus)
 #log_otus <- log_otus[apply(log_otus[,-1], 1, function(x) !all(x==0)),]
 
 log_otus <- log_otus[row.names(best.tax),]
+otus_pcnt <- otus_pcnt[row.names(best.tax),]
 
 dim(log_otus)
 
