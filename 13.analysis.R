@@ -14,7 +14,6 @@ dim(sample_read_sums)
 best.tax <- read.table("11.best_tax.xls", header=T, sep='\t', row.names=1)
 best.tax$desc <- sprintf("%s : %s (%s, %.2g)", rownames(best.tax), best.tax$best_tax, best.tax$best_tax_level, best.tax$best_tax_confidence)
 
-
 # read in the raw data
 raw_otus <- read.table("pesticide_community.xls", header=T, sep='\t', row.names=1)
 raw_otus <- raw_otus[, -which(names(raw_otus) %in% c("domain", "domain_confidence", "phylum", "phylum_confidence", "class", "class_confidence", "order_", "order_confidence", "family", "family_confidence", "genus", "genus_confidence", "species", "species_confidence", "sequence"))]
@@ -44,6 +43,11 @@ sample_full
 
 dim(t(log_otus))
 
+# data preparation done
+
+#################################################################
+# MDS
+
 mds <- metaMDS(t(log_otus), maxit=10000, trymax=1000)
 mds
 
@@ -63,29 +67,28 @@ points(mds$points[sample_full$day == 0, ], cex = 1.0, pch=21, col="black", bg="w
 points(mds$points[sample_full$day == 7, ], cex = 1.0, pch=21, col="black", bg="grey")
 points(mds$points[sample_full$day == 56, ], cex = 1.0, pch=21, col="black", bg="black")
 
-#plot(ord_o, type="n")
-#text(ord_o, display = "species", cex=.6)
-#points(ord_o$CCA$wa[sample_full$diet == 'control diet', ], cex = 0.8, pch=21, col="black", bg="magenta")
-#points(ord_o$CCA$wa[sample_full$diet == 'HVD diet', ], cex = 0.8, pch=21, col="black", bg="cyan")
-#text(ord_o$CCA$wa[sample_full$diet == 'control diet', ] - 0.06, labels = rownames(sample_full)[sample_full$diet == 'control diet'], col="magenta", cex=.6)
-#text(ord_o$CCA$wa[sample_full$diet == 'HVD diet', ] - 0.06, labels = rownames(sample_full)[sample_full$diet == 'HVD diet'], col="cyan", cex=.6)
-
 dev.off()
 
-#ord_o <- cca(sample_otus ~ cage + mouse + week + gender, data = sample_full)
-#ord_o
-#summary(ord_o)
 
-#ord <- cca(sample_otus ~ diet + Animal + Week + Gender, data = sample_full)
-#anova(ord)
-#anova(ord, by="term")
-#anova(ord, by="mar")
-#anova(ord, by="axis")
+#################################################################
+# constrainted ordination
 
-#ord_c_c <- cca(sample_otus ~ Condition(diet) + Replicate + Week, data = sample_full)
-#anova(ord_c_c)
-#anova(ord_c_c, by="term")
-#anova(ord_c_c, by="term", strata=diet)
-#anova(ord_c_c, by="mar")
-#anova(ord_c_c, by="axis")
+ord <- cca(t(log_otus) ~ pesticide + concentration + day, data = sample_full)
+ord
+summary(ord)
+anova(ord)
+anova(ord, by="term")
+anova(ord, by="mar")
+anova(ord, by="axis")
+plot(ord)
 
+ord_c_d <- cca(t(log_otus) ~ pesticide + concentration + Condition(day), data = sample_full)
+anova(ord_c_d)
+anova(ord_c_d, by="term")
+anova(ord_c_d, by="mar")
+anova(ord_c_d, by="axis")
+
+ord_c_c <- cca(t(log_otus) ~ pesticide + Condition(concentration) + day, data = sample_full)
+anova(ord_c_c)
+anova(ord_c_c, by="term")
+anova(ord_c_c, by="mar")

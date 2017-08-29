@@ -1,3 +1,3 @@
 #!/bin/bash
 
-R --no-save < 13.MDS.R
+R --no-save < 13.analysis.R
