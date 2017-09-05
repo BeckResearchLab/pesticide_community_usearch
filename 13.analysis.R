@@ -73,6 +73,8 @@ dev.off()
 #################################################################
 # constrainted ordination
 
+pdf("13.CCA.pdf")
+
 ord <- cca(t(log_otus) ~ pesticide + concentration + day, data = sample_full)
 ord
 summary(ord)
@@ -92,3 +94,45 @@ ord_c_c <- cca(t(log_otus) ~ pesticide + Condition(concentration) + day, data = 
 anova(ord_c_c)
 anova(ord_c_c, by="term")
 anova(ord_c_c, by="mar")
+
+dev.off()
+
+################################################################
+# rarefaction
+
+pdf("13.rarefaction.pdf")
+
+raw_otus_t <- t(raw_otus)
+S <- specnumber(raw_otus_t)
+(raremax <- min(rowSums(raw_otus_t)))
+Srare <- rarefy(raw_otus_t, raremax)
+plot(S, Srare, xlab = "Observed No. of Species", ylab = "Rarefied No. of Species")
+abline(0, 1)
+rarecurve(raw_otus_t, step = 20, sample = raremax, col = "blue", cex = 0.6)
+
+dev.off()
+
+################################################################
+# diversity
+
+pdf("13.diversity.pdf")
+
+H <- diversity(raw_otus_t, "shannon")
+simp <- diversity(raw_otus_t, "simpson")
+invsimp <- diversity(raw_otus_t, "inv")
+## Unbiased Simpson (Hurlbert 1971, eq. 5) with rarefy:
+unbias.simp <- rarefy(raw_otus_t, 2) - 1
+## Fisher alpha
+alpha <- fisher.alpha(raw_otus_t)
+## Plot all
+pairs(cbind(H, simp, invsimp, unbias.simp, alpha), pch="+", col="blue")
+## Species richness (S) and Pielou's evenness (J):
+S <- specnumber(raw_otus_t) ## rowSums(raw_otus_t > 0) does the same...
+J <- H/log(S)
+
+barplot(H)
+barplot(simp)
+barplot(invsimp)
+barplot(alpha)
+
+dev.off()
