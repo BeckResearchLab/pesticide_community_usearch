@@ -118,12 +118,17 @@ dev.off()
 pdf("13.diversity.pdf")
 
 H <- diversity(raw_otus_t, "shannon")
+write.table(H, '13.shannon.xls', col.names = NA, row.names = TRUE, sep='\t')
 simp <- diversity(raw_otus_t, "simpson")
+write.table(simp, '13.simpson.xls', col.names = NA, row.names = TRUE, sep='\t')
 invsimp <- diversity(raw_otus_t, "inv")
+write.table(invsimp, '13.invsimpson.xls', col.names = NA, row.names = TRUE, sep='\t')
+invsimp
 ## Unbiased Simpson (Hurlbert 1971, eq. 5) with rarefy:
 unbias.simp <- rarefy(raw_otus_t, 2) - 1
 ## Fisher alpha
 alpha <- fisher.alpha(raw_otus_t)
+alpha
 ## Plot all
 pairs(cbind(H, simp, invsimp, unbias.simp, alpha), pch="+", col="blue")
 ## Species richness (S) and Pielou's evenness (J):
@@ -134,5 +139,18 @@ barplot(H)
 barplot(simp)
 barplot(invsimp)
 barplot(alpha)
+
+
+## Raw data and plotting
+m <- betadiver(raw_otus_t)
+plot(m)
+## The indices
+betadiver(help=TRUE)
+## The basic Whittaker index
+d <- betadiver(raw_otus_t, "w")
+## This should be equal to Sorensen index (binary Bray-Curtis in
+## vegan)
+range(d - vegdist(raw_otus_t, binary=TRUE))
+
 
 dev.off()
