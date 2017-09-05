@@ -1,7 +1,12 @@
 library(vegan)
 
+#########
+# setup handling to remove the DNA rows
+remove_rows <- c("DConD0R1", "DConD0R2")
+
 # read the sample metadata
 md <- read.table("sample_info.xls", header=T, sep='\t', row.names=1, comment.char="")
+md <- md[!rownames(md) %in% remove_rows, ]
 dim(md)
 head(md)
 
@@ -9,13 +14,16 @@ head(md)
 sample_read_sums <- read.table("10.normalize.read_sums.xls", header=T, sep="\t", row.names=1)
 sample_read_sums
 dim(sample_read_sums)
+sample_read_sums <- sample_read_sums[, !names(sample_read_sums) %in% remove_rows]
 
 # read the persistent taxa list
 best.tax <- read.table("11.best_tax.xls", header=T, sep='\t', row.names=1)
+best.tax <- best.tax[, !names(best.tax) %in% remove_rows]
 best.tax$desc <- sprintf("%s : %s (%s, %.2g)", rownames(best.tax), best.tax$best_tax, best.tax$best_tax_level, best.tax$best_tax_confidence)
 
 # read in the raw data
 raw_otus <- read.table("pesticide_community.xls", header=T, sep='\t', row.names=1)
+raw_otus <- raw_otus[, !names(raw_otus) %in% remove_rows]
 raw_otus <- raw_otus[, -which(names(raw_otus) %in% c("domain", "domain_confidence", "phylum", "phylum_confidence", "class", "class_confidence", "order_", "order_confidence", "family", "family_confidence", "genus", "genus_confidence", "species", "species_confidence", "sequence"))]
 head(raw_otus)
 dim(raw_otus)
@@ -28,7 +36,8 @@ dim(otus_pcnt)
 
 # read the log normalized data
 log_otus <- read.table("pesticide_community.log_normalized.xls", header=T, sep='\t', row.names=1)
-log_otus <- log_otus[, -which(names(log_otus) %in% c("domain", "domain_confidence", "phylum", "phylum_confidence", "class", "class_confidence", "order_", "order_confidence", "family", "family_confidence", "genus", "genus_confidence", "species", "species_confidence", "sequence"))]
+log_otus <- log_otus[, !names(log_otus) %in% remove_rows]
+log_otus <- log_otus[, !names(log_otus) %in% c("domain", "domain_confidence", "phylum", "phylum_confidence", "class", "class_confidence", "order_", "order_confidence", "family", "family_confidence", "genus", "genus_confidence", "species", "species_confidence", "sequence")]
 head(log_otus)
 
 # extract out the persistent OTUs
@@ -148,6 +157,10 @@ plot(m)
 betadiver(help=TRUE)
 ## The basic Whittaker index
 d <- betadiver(raw_otus_t, "w")
+
+heatmap(as.matrix(d))
+write.table(as.matrix(d), '13.whittaker.xls', col.names = NA, row.names= T, sep='\t')
+
 ## This should be equal to Sorensen index (binary Bray-Curtis in
 ## vegan)
 range(d - vegdist(raw_otus_t, binary=TRUE))
